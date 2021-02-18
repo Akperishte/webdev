@@ -1,0 +1,206 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <style>
+
+    .header{
+     font-size: 18px;
+     font-family:Arial, Helvetica, sans-serif;
+     font-weight:normal;
+     background-color:rgba(10, 9, 9, 0.925);
+     color:gray;
+     padding-left: 50px;
+     padding-top: 13px;
+     padding-bottom: 13px;
+}
+
+
+
+#name{
+    margin-top: 55px;
+    font-size: 25px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    padding-left: 250px;
+    color:rgba(32, 30, 30, 0.959);
+}
+
+#newtask{
+    height: 35px;
+    width: 40%;
+    margin-top: 15px;
+    margin-left: 300px;
+    border-radius: 5px;
+    border:2px solid #efefef;
+    padding-left: 15px;
+}
+
+.add{
+    height: 35px;
+    width: 50px;
+    margin-left: 15px;
+    color:white;
+    border-radius: 5px;
+    border:2px solid #2f2fb1;
+    background-color:#2f2fb1;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.add:hover{
+    background-color: orchid;
+    border: solid orchid;
+    height: 100px;
+}
+
+.list{
+    border: solid whitesmoke;
+    margin-top: 40px;
+    width: 60%;
+    margin-left: 250px;
+}
+
+ul li{
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 35px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-right: 35px;
+}   
+
+ul li:hover {
+    background: #ddd;
+  }
+
+ul li.done {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through; 
+}
+
+  
+ul li.done::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  
+}
+
+.close {
+    position: absolute;
+    padding-left: 300px;
+    padding-right: 15px;
+    width: 10px;
+    text-align: right;
+  }
+  
+  .close:hover {
+    color: white;
+  }
+  
+    
+
+  
+    </style>
+</head>
+
+<body>
+    <h1 class = "header">ToDo List</h1>
+
+    <div class = "info">
+        <h2 id = "name">ToDo List</h2>
+        <input type="text" id = "newtask" placeholder="New Task">
+        <span class = "add" onclick= "newItemAdd()">Add</span>
+        <div class = "list">
+            <ul id = "ulist">
+                <li class="done">First item</li>
+               
+                <li>Second item</li>
+               
+                <li>Third item </li>
+               
+            </ul>
+        </div>
+    </div>
+
+<script>
+
+
+function newItemAdd() {
+  var lists = document.createElement("li");
+  var val = document.getElementById("newtask").value;
+  var t = document.createTextNode(val);
+  lists.appendChild(t);
+  if (val === '') {
+    alert("Try once more. You should enter something!");
+  } else {
+    document.getElementById("ulist").appendChild(lists);
+  }
+  document.getElementById("newtask").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createElement("img");
+  span.className = "close";
+  span.appendChild(txt);
+  txt.src="C:\Users\р\Downloads\del.png";
+  lists.appendChild(span);
+  
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var curDiv = this.parentElement;
+      curDiv.style.display = "none";
+    }
+  }
+}
+
+
+
+    var ListOfNodes = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < ListOfNodes.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createElement("img");
+        span.className = "close";
+        txt.src="C:\Users\р\Downloads\del.png";
+        span.appendChild(txt);
+        ListOfNodes[i].appendChild(span);
+}
+
+
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var curDiv = this.parentElement;
+    curDiv.style.display = "none";
+  }
+}
+
+
+
+var listOfItems = document.querySelector('ul');
+listOfItems.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('done');
+  }
+}, false);
+
+
+</script>    
+</body>
+</html>
