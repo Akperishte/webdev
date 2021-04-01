@@ -1,1 +1,140 @@
+#Say "Hello, World!"
+my_string = "Hello, World!"
+print(my_string)
+
+#Python If-Else
+
+import math
+import os
+import random
+import re
+import sys
+N = int(raw_input().strip())
+
+if N % 2 != 0:
+    print "Weird"
+else:
+    if N >= 2 and N <= 5:
+        print "Not Weird"
+    elif N >= 6 and N <= 20:
+        print "Weird"
+    elif N > 20:
+        print "Not Weird"
+        
+ #Arithmetic Operators
+
+ a = int(raw_input())
+    b = int(raw_input())
+    
+    print a+b;
+    print a-b;
+    print a*b;
+
+#Python: Division
+
+a = int(raw_input())
+b = int(raw_input())
+
+print a // b
+print a / b
+
+#Loops
+ n = int(raw_input())
+    for i in range(n):
+    print i * i
+    
+#Write a function
+
+def is_leap(n):
+    if n % 400 == 0:
+        return True
+    if n % 100 == 0:
+        return False
+    if n % 4 == 0:
+        return True
+    return False
+
+
+year = int(raw_input())
+print is_leap(year)
+
+#Print Function
+
+print(*range(1, input() + 1), sep="")  
+
+#List Comprehensions
+
+x = int(raw_input())
+    y = int(raw_input())
+    z = int(raw_input())
+    n = int(raw_input())
+    
+    ans = [[i, j, k] for i in range(x + 1) for j in range(y + 1) for k in range(z + 1) if i + j + k != n]
+print ans
+
+
+#Find the Runner-Up Score!
+
+n = int(raw_input())
+    arr = map(int, raw_input().split())
+    
+    m1 = max(arr)
+    m2 = -9999999999
+    for i in range(n):
+        if arr[i] != m1 and arr[i] > m2:
+            m2 = arr[i]
+    print m2
+    
+#Nested Lists
+
+N = int(raw_input())
+
+students = []
+for i in range(2*N):
+    students.append(raw_input().split())
+grades = {}
+for j in range(0, len(students), 2):
+    grades[students[j][0]] = float(students[j + 1][0])
+result = []
+num_to_match = sorted(set(grades.values()))[1]
+for pupil in grades.keys():
+    if grades[pupil] == num_to_match:
+        result.append(pupil)
+for k in sorted(result):
+    print k
+    
+#Finding the percentage
+
+N = int(raw_input())
+results = {}
+for i in range(N):
+    a = raw_input().split(' ')
+    results[a[0]] = [float(x) for x in a[1:]]
+student = raw_input()
+print "%.2f" %(sum(results[student])/len(results[student]))
+
+
+#Lists
+
+list = []
+n = int(raw_input())
+for i in range(n):
+    a = raw_input().split()
+    if len(a) == 3:
+        eval("list." + a[0] + "(" + a[1] + "," + a[2] + ")")
+    elif len(a) == 2:
+        eval("list." + a[0] + "(" + a[1] + ")")
+    elif a[0] == "print":
+        print list
+    else:
+        eval("list." + a[0] + "()")
+
+#Tuples
+
+tuple_len = int(raw_input())
+a = tuple(map(int, raw_input().split(' ')))
+print hash(a)
+
+
+
 
